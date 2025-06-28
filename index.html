@@ -414,34 +414,6 @@
     <br>
     <br>
 
-    <script>
-document.addEventListener('DOMContentLoaded', () => {
-  const form = document.querySelector('form'); // assumes only one form
-
-  form.addEventListener('submit', e => {
-    e.preventDefault();
-    const formData = new FormData(form);
-    const data = {};
-    formData.forEach((val, key) => data[key] = val);
-
-    fetch('https://script.google.com/macros/s/AKfycbxbQrC4Fjmeub83r8wX4u5PBXO38prsAlXSzYVXU3MLj_WFjq-Xpn-bOwMwG3JNDsoy/exec', {
-      method: 'POST',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify(data)
-    })
-    .then(r => r.json())
-    .then(res => {
-      alert('Data sent! Thank you.');
-      form.reset();
-    })
-    .catch(err => {
-      console.error(err);
-      alert('Oops! Submission failed.');
-    });
-  });
-});
-</script>
-
 
 </body>
 
